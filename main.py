@@ -14,13 +14,19 @@ import random
 # Parameter: none
 # Return: none
 def circle():
-    print("       * * * * *  \n    *             * \n  *                 * \n *                   *")
-    print(" *                   * \n  *                 * \n    *             * \n       * * * * *  ")
+    print("       * * * * *  \n"
+          "    *             * \n"
+          "  *                 * \n"
+          " *                   *")
+    print(" *                   * \n"
+          "  *                 * \n"
+          "    *             * \n"
+          "       * * * * *  ")
 
-# Purpose:
-# Name:
-# Parameter:
-# Return:
+# Purpose: Allow user to design specified number of lines
+# Name: lines
+# Parameter: none
+# Return: none
 def lines():
     count = 0
     number_of_lines = input("How many lines do you want?:")
@@ -38,13 +44,68 @@ def lines():
         print(characters * character_repeat)
         count += 1
 
-# Purpose:
-# Name:
-# Parameter:
-# Return:
+# Purpose: Prints random design
+# Name: random_design
+# Parameter: none
+# Return: none
 def random_design():
-    print(" Alien:\n       *    *    \n       |    |     \n     ----------\n    |          |\n   |  **    **  |\n   |  **    **  |\n "
-      "  |  **    **  |\n   |     - -    |\n   |            |\n   |  *      *  |\n    |   ****   |\n     ----------")
+    design_picker = 0
+    design_picker = random.randint(1, 3)
+
+    if design_picker == 1:
+        print(" Alien:\n "
+          "      *    *    \n"
+          "       |    |    \n"
+          "     ----------\n"
+          "    |          |\n"
+          "   |  **    **  |\n"
+          "   |  **    **  |\n"
+          "   |  **    **  |\n "
+          "  |     - -    |\n "
+          "  |            |\n"
+          "   |  *      *  |\n "
+          "   |   ****   |\n"
+          "     ----------")
 
 
-print("   &&&&&&&&&&&&\n &&&&&&&&&&&&&&&&\n &&&&&&&&&&&&&&&&\n &&&&&&&&&&&&&&&&\n ")
+    elif design_picker == 2:
+        print("Mushroom:\n"
+          "  &&&&&&&OOOO&&\n"
+          " &&&OOO&&&OO&&&&&\n"
+          " &&&OOO&&&&&&&OOO\n"
+          " &&&OO&&&&&&&&&OO\n"
+          "     (     )\n"
+          "      |   |\n"
+          "      |   |\n"
+          "      |   |\n"
+          "      )   ( ")
+
+    elif design_picker == 3:
+        print("Cat:\n"
+          "     /\\  /\\ \n"
+          "    ( ^ * ^ )     /\\      \n"
+          "      \\       \\  \\ \\ \n"
+          "      /        | / /  \n"
+          "      \\  \\ /  /   /  \n ")
+
+def main():
+    print("Hello! In this program you will be able to view different kinds of ASCII designs. \n "
+          "You can also design your own ASCII design via inputting what characters you wish \n"
+          "to be in a series of lines. Please enter 'C' for view a circle, 'L' for line creation, \n"
+          "'R' for random design, and 'E' for exiting the program. \n ")
+    user_choice = str(input("What will you do?: "))
+    while user_choice != 'C' and user_choice != 'L' and user_choice != 'R' and user_choice != 'E':
+        user_choice = str(input("Please enter C or L or R or E: "))
+    if user_choice == "C":
+        circle()
+    elif user_choice == "L":
+        lines()
+    elif user_choice == "R":
+        random_design()
+    elif user_choice == "E":
+        print("Thank you for using this program!")
+        exit()
+
+
+
+main()
